@@ -1,21 +1,8 @@
-name: Spell Check (codespell)
-
-on:
-  push:
-  pull_request:
-
-jobs:
-  codespell:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Run codespell
-        uses: codespell-project/actions-codespell@v2.1
-        with:
-          path: .
-          check_filenames: "1"   # <= use string, not bare true
-          check_hidden: "1"      # <= same
-          # optional, or use .codespellrc:
-          skip: ".git,node_modules,dist,build,.venv,*.min.js,*.png,*.jpg,*.pdf"
-          ignore_words_list: "Login,Cart"
+[codespell]
+skip = .git, node_modules, dist, build, .venv, *.min.js, *.png, *.jpg, *.pdf
+check-filenames = true
+check-hidden = true
+# add words you want to allow (comma-separated)
+ignore-words-list = Login, Cart
+# be quieter (0..3). 3 = only the misspellings
+quiet-level = 3
