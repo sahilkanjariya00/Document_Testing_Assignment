@@ -1,16 +1,21 @@
-[codespell]
-# folders/files to skip (comma-separated)
-skip = .git, node_modules, dist, build, .venv, *.min.js, *.png, *.jpg, *.pdf
+name: Spell Check (codespell)
 
-# extra dictionary words to ignore (comma-separated)
-ignore-words-list = crate, fo, ba, te, nd, recieve
+on:
+  push:
+  pull_request:
 
-# show count & fail on issues
-count = true
-quiet-level = 3
+jobs:
+  codespell:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
 
-# also check filenames
-check-filenames = true
-
-# enable suggestions in output
-enable-colors = true
+      - name: Run codespell
+        uses: codespell-project/actions-codespell@v2.1
+        with:
+          path: .
+          check_filenames: "1"   # <= use string, not bare true
+          check_hidden: "1"      # <= same
+          # optional, or use .codespellrc:
+          skip: ".git,node_modules,dist,build,.venv,*.min.js,*.png,*.jpg,*.pdf"
+          ignore_words_list: "Login,Cart"

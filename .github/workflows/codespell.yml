@@ -1,4 +1,4 @@
-name: Spell Check (codespell)
+name: Spell Check (codespell - CLI)
 
 on:
   push:
@@ -9,13 +9,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
-      # Runs codespell with your .codespellrc automatically
-      - name: Run codespell
-        uses: codespell-project/actions-codespell@v2
-        with:
-          path: .
-          # check_filenames: true
-          # If you didn't create .codespellrc, you can pass options here:
-          # ignore_words_list: "crate,fo,ba,te,nd,recieve"
-          # skip: ".git,node_modules,dist,build,.venv,*.min.js,*.png,*.pdf"
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.x" }
+      - run: pip install "codespell>=2,<3"
+      - run: |
+          codespell \
+            --check-filenames \
+            --check-hidden \
+            --skip ".git,node_modules,dist,build,.venv,*.min.js,*.png,*.jpg,*.pdf" \
+            --ignore-words-list "Login,Cart" \
+            .
