@@ -1,0 +1,21 @@
+name: Spell Check (codespell)
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  codespell:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Runs codespell with your .codespellrc automatically
+      - name: Run codespell
+        uses: codespell-project/actions-codespell@v2
+        with:
+          path: .
+          check_filenames: true
+          # If you didn't create .codespellrc, you can pass options here:
+          # ignore_words_list: "crate,fo,ba,te,nd,recieve"
+          # skip: ".git,node_modules,dist,build,.venv,*.min.js,*.png,*.pdf"

@@ -1,0 +1,16 @@
+[codespell]
+# folders/files to skip (comma-separated)
+skip = .git, node_modules, dist, build, .venv, *.min.js, *.png, *.jpg, *.pdf
+
+# extra dictionary words to ignore (comma-separated)
+ignore-words-list = crate, fo, ba, te, nd, recieve
+
+# show count & fail on issues
+count = true
+quiet-level = 3
+
+# also check filenames
+check-filenames = true
+
+# enable suggestions in output
+enable-colors = true
