@@ -1,17 +1,30 @@
-name: Spell Check (codespell - CLI)
+name: Spell Check
 
 on:
   push:
+    branches: [ main, master ]
   pull_request:
+    branches: [ main, master ]
 
 jobs:
   codespell:
+    name: Check for Typos with codespell
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+        # Retrieves your code so the action can check it
+
+      - name: Run codespell Action
+        uses: codespell-project/actions-codespell@v2
         with:
-          python-version: "3.x"
-      - run: pip install "codespell>=2,<3"
-      - name: Run codespell (reads .codespellrc)
-        run: codespell --config .codespellrc .
+          # --- Configuration Options (Optional but Recommended) ---
+          
+          # The path to your word ignore list (if you have one)
+          # Create a file named .codespellignore in your repo root.
+          ignore_words_file: .codespellignore
+          
+          # Comma-separated list of files or globs to skip
+          skip: '*.po,*.ts,node_modules,package-lock.json'
+          
+          # Set to true to check file names for typos as well
+          check_filenames: true

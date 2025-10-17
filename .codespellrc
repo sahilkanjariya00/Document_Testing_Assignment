@@ -1,8 +1,0 @@
-[codespell]
-skip = .git, node_modules, dist, build, .venv, *.min.js, *.png, *.jpg, *.pdf
-check-filenames = true
-check-hidden = true
-# add words you want to allow (comma-separated)
-ignore-words-list = Login, Cart
-# be quieter (0..3). 3 = only the misspellings
-quiet-level = 3
