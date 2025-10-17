@@ -122,7 +122,7 @@ This test plan exists to (a) practice collaborative authoring/merging in a real�
 | Risk                                   | Impact        | Likelihood | Mitigation                                  |
 |----------------------------------------|---------------|------------|----------------------------------------------|
 | Merge overwrite due to rapid edits     | Loss of work  | Medium     | Use Suggest mode; frequent named versions.   |
-| Network latency                        | Mis‑ordered edits | Medium  | Pause after each paragraph; refresh history. |
+| Network latency                        | Miss‑ordered edits | Medium  | Pause after each paragraph; refresh history. |
 | Ambiguous ownership                    | Conflicting decisions | Low | Editor‑1 final call; document in Section 11. |
 
 ---
