@@ -1,4 +1,4 @@
-# Collaborative Test Plan — Dummy (Can be used for Lab‑1, Lab‑2, and Lab‑3)
+# Collaborative Test Plan — Actual
 
 > **Document ID:** TP‑COLLAB‑001  
 > **Version:** 1.0  
